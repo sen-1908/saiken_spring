@@ -4,9 +4,7 @@ package com.basic.spring.controller;
 import com.basic.spring.model.Item;
 import com.basic.spring.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,10 @@ public class mainController {
     @RequestMapping("/items")
     public List<Item> getAllItems() {
         return itemService.getAllItems();
+    }
+
+    @PostMapping("/items")
+    public List<Item> addItem(@RequestBody Item item) {
+        return itemService.addItem(item);
     }
 }

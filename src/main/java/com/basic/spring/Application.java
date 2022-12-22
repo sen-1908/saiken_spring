@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class Application {
 
 	@Autowired
 	private ItemRepository itemRepository;
@@ -16,9 +16,4 @@ public class Application implements CommandLineRunner {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Override
-	public void run(String... args)throws Exception {
-		itemRepository.save(new Item("test","test"));
-		itemRepository.save(new Item("test2","test3"));
-	}
 }
