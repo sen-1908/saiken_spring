@@ -26,7 +26,16 @@ public class mainController {
     }
 
     @PostMapping("/items")
-    public List<Item> addItem(@RequestBody Item item) {
-        return itemService.addItem(item);
+    public void addItem(@RequestBody Item item) {
+        itemService.addItem(item);
+    }
+    @PutMapping("/items/{itemId}")
+    public void updateItem(@RequestBody Item item,@PathVariable("itemId") Long itemId) {
+        itemService.updateItem(itemId,item);
+    }
+
+    @DeleteMapping("/items/{itemId}")
+    public void deleteItem(@PathVariable("itemId") Long itemId) {
+        itemService.deleteItem(itemId);
     }
 }

@@ -14,14 +14,22 @@ public class ItemService {
     private ItemRepository itemRepository;
     private List<Item>allItems = new ArrayList<>();
     public List<Item> getAllItems() {
-
         itemRepository.findAll().forEach(allItems::add);
         return allItems;
     }
 
 
-    public List<Item> addItem(Item item) {
-        allItems.add(item);
-        return allItems;
+    public void addItem(Item item) {
+        itemRepository.save(item);
+    }
+
+    public void updateItem(Long itemId, Item item) {
+        if(itemRepository.findById(itemId).get() != null) {
+            itemRepository.save(item);
+        }
+    }
+
+    public void deleteItem(Long itemId) {
+        itemRepository.deleteById(itemId);
     }
 }

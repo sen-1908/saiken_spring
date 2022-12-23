@@ -1,14 +1,10 @@
 package com.basic.spring.model;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
-
-@Entity(name = "m_item")
+@Entity
+@Table(name = "m_item")
 public class Item {
 
 
@@ -22,7 +18,6 @@ public class Item {
     }
 
     public Item(String itemName, String itemCategory) {
-        super();
         this.itemName = itemName;
         this.itemCategory = itemCategory;
     }
