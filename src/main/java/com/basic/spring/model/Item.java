@@ -2,6 +2,8 @@ package com.basic.spring.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Table(name = "m_item")
@@ -10,39 +12,90 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long itemId;
-    private String itemName;
-    private String itemCategory;
+    private Long brandCode;
+    private String brandName;
+    private int redemption;
+    private int coupon;
+    private BigDecimal interest;
+    private BigDecimal quantity;
+    private BigDecimal bookValue;
+    private BigDecimal marketValue;
+
+    public Item(Long brandCode, String brandName, int redemption, int coupon, BigDecimal interest) {
+        this.brandCode = brandCode;
+        this.brandName = brandName;
+        this.redemption = redemption;
+        this.coupon = coupon;
+        this.interest = interest;
+    }
 
     public Item() {
     }
 
-    public Item(String itemName, String itemCategory) {
-        this.itemName = itemName;
-        this.itemCategory = itemCategory;
+
+    public Long getBrandCode() {
+        return brandCode;
     }
 
-    public Long getItemId() {
-        return itemId;
+    public void setBrandCode(Long brandCode) {
+        this.brandCode = brandCode;
     }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public String getItemName() {
-        return itemName;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public int getRedemption() {
+        return redemption;
     }
 
-    public String getItemCategory() {
-        return itemCategory;
+    public void setRedemption(int redemption) {
+        this.redemption = redemption;
     }
 
-    public void setItemCategory(String itemCategory) {
-        this.itemCategory = itemCategory;
+    public int getCoupon() {
+        return coupon;
     }
+
+    public void setCoupon(int coupon) {
+        this.coupon = coupon;
+    }
+
+    public BigDecimal getInterest() {
+        return interest;
+    }
+
+    public void setInterest(BigDecimal interest) {
+        this.interest = interest;
+    }
+
+    public BigDecimal getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(BigDecimal quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getBookValue() {
+        return bookValue;
+    }
+
+    public void setBookValue(BigDecimal bookValue) {
+        this.bookValue = bookValue;
+    }
+
+    public BigDecimal getMarketValue() {
+        return marketValue;
+    }
+
+    public void setMarketValue(BigDecimal marketValue) {
+        this.marketValue = marketValue;
+    }
+
+
 }
