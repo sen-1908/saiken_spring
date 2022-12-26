@@ -12,8 +12,8 @@ import java.util.List;
 public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
-    private List<Item>allItems = new ArrayList<>();
     public List<Item> getAllItems() {
+        List<Item>allItems = new ArrayList<>();
         itemRepository.findAll().forEach(allItems::add);
         return allItems;
     }
