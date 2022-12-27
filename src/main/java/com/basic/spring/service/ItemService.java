@@ -1,6 +1,7 @@
 package com.basic.spring.service;
 
 import com.basic.spring.model.Item;
+import com.basic.spring.model.Master;
 import com.basic.spring.repo.ItemRepository;
 import com.basic.spring.repo.MasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,9 @@ public class ItemService {
         itemRepository.deleteById(itemId);
     }
 
+    public List<Master> getMasterData() {
+        List<Master>masterData = new ArrayList<>();
+        masterRepository.findAll().forEach(masterData::add);
+        return masterData;
+    }
 }

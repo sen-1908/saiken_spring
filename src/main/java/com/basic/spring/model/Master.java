@@ -7,11 +7,16 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "master_item")
 public class Master {
+    @Id
     private String brandCode;
     private String brandName;
     private int redemption;
     private int coupon;
     private BigDecimal interest;
+
+    public Master() {
+
+    }
 
     public String getBrandCode() {
         return brandCode;

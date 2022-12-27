@@ -2,6 +2,7 @@ package com.basic.spring.controller;
 
 
 import com.basic.spring.model.Item;
+import com.basic.spring.model.Master;
 import com.basic.spring.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,11 @@ public class mainController {
     @RequestMapping("/")
     public List<Item> getAllItems() {
         return itemService.getAllItems();
+    }
+
+    @RequestMapping("/post")
+    public List<Master> getMasterData() {
+        return itemService.getMasterData();
     }
 
     @RequestMapping("/{brandId}")
