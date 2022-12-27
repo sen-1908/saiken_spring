@@ -2,6 +2,7 @@ package com.basic.spring.service;
 
 import com.basic.spring.model.Item;
 import com.basic.spring.repo.ItemRepository;
+import com.basic.spring.repo.MasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,17 @@ import java.util.List;
 public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
+    @Autowired
+    private MasterRepository masterRepository;
+
     public List<Item> getAllItems() {
         List<Item>allItems = new ArrayList<>();
         itemRepository.findAll().forEach(allItems::add);
         return allItems;
+    }
+    public Item getItem(Long brandId) {
+        Item item = itemRepository.findById(brandId).get();
+        return item;
     }
 
 
@@ -32,4 +40,5 @@ public class ItemService {
     public void deleteItem(Long itemId) {
         itemRepository.deleteById(itemId);
     }
+
 }

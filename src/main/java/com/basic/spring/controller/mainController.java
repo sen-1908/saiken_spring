@@ -16,26 +16,27 @@ public class mainController {
     private ItemService itemService;
 
     @RequestMapping("/")
-    public String index() {
-        return "Hello";
-    }
-
-    @RequestMapping("/items")
     public List<Item> getAllItems() {
         return itemService.getAllItems();
     }
 
-    @PostMapping("/items")
+    @RequestMapping("/{brandId}")
+    public Item getItem(@PathVariable("brandId") Long brandId) {
+        return itemService.getItem(brandId);
+    }
+
+    @PostMapping("/")
     public void addItem(@RequestBody Item item) {
         itemService.addItem(item);
     }
-    @PutMapping("/items/{itemId}")
-    public void updateItem(@RequestBody Item item,@PathVariable("itemId") Long itemId) {
-        itemService.updateItem(itemId,item);
+
+    @PutMapping("/{brandId}")
+    public void updateItem(@RequestBody Item item,@PathVariable("brandId") Long brandId) {
+        itemService.updateItem(brandId,item);
     }
 
-    @DeleteMapping("/items/{itemId}")
-    public void deleteItem(@PathVariable("itemId") Long itemId) {
-        itemService.deleteItem(itemId);
+    @DeleteMapping("/{brandId}")
+    public void deleteItem(@PathVariable("brandId") Long brandId) {
+        itemService.deleteItem(brandId);
     }
 }

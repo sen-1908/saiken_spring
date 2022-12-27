@@ -6,71 +6,32 @@ import java.math.BigDecimal;
 
 
 @Entity
-@Table(name = "m_item")
+@Table(name = "balance_item")
 public class Item {
+
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long brandCode;
-    private String brandName;
-    private int redemption;
-    private int coupon;
-    private BigDecimal interest;
+    private long id;
+    private String brandCode;
     private BigDecimal quantity;
     private BigDecimal bookValue;
     private BigDecimal marketValue;
 
-    public Item(Long brandCode, String brandName, int redemption, int coupon, BigDecimal interest) {
+    public Item(String brandCode, BigDecimal quantity, BigDecimal bookValue, BigDecimal marketValue) {
         this.brandCode = brandCode;
-        this.brandName = brandName;
-        this.redemption = redemption;
-        this.coupon = coupon;
-        this.interest = interest;
+        this.quantity = quantity;
+        this.bookValue = bookValue;
+        this.marketValue = marketValue;
     }
 
-    public Item() {
-    }
-
-
-    public Long getBrandCode() {
+    public String getBrandCode() {
         return brandCode;
     }
 
-    public void setBrandCode(Long brandCode) {
+    public void setBrandCode(String brandCode) {
         this.brandCode = brandCode;
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
-
-    public int getRedemption() {
-        return redemption;
-    }
-
-    public void setRedemption(int redemption) {
-        this.redemption = redemption;
-    }
-
-    public int getCoupon() {
-        return coupon;
-    }
-
-    public void setCoupon(int coupon) {
-        this.coupon = coupon;
-    }
-
-    public BigDecimal getInterest() {
-        return interest;
-    }
-
-    public void setInterest(BigDecimal interest) {
-        this.interest = interest;
     }
 
     public BigDecimal getQuantity() {
